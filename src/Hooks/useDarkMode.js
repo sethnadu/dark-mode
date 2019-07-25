@@ -6,15 +6,13 @@ const useDarkMode = (initialValue) => {
  const [darkMode, setDarkMode] = useLocalStorage("darkMode", initialValue)
 
  useEffect(() => {
-     if (initialValue === true) {
-         document.querySelector("body").classList.add("dark-mode");
-         
+     if (darkMode !== true) {
+         document.querySelector("body").classList.remove("dark-mode");
      } else {
-        document.querySelector("body").classList.remove("dark-mode");
-     
+        document.querySelector("body").classList.add("dark-mode");
      }
     
- }, [ initialValue])
+ }, [darkMode])
  return [darkMode, setDarkMode]
 }
 
